@@ -1,7 +1,19 @@
 [Desktop Entry]
 Encoding=UTF-8
 Name=Telepathy Send To
+Name[it]=Invio via Telepathy
+Name[nl]=Verzenden door Telepathy
+Name[pt]=Envio do Telepathy
+Name[pt_BR]=Enviar para do Telepathy
+Name[uk]=Надсилання файлів за допомогою Telepathy
+Name[x-test]=xxTelepathy Send Toxx
 Comment=A tool to send images to IM contacts
+Comment[it]=Uno strumento per inviare immagini a contatti di messaggistica istantanea
+Comment[nl]=Een hulpmiddel voor het verzenden van afbeeldingen naar IM-contactpersonen
+Comment[pt]=Uma ferramenta para enviar imagens para os contactos de MI
+Comment[pt_BR]=Uma ferramenta para enviar imagens para contatos do IM
+Comment[uk]=Інструмент для надсилання зображень контактам мережі обміну повідомленнями
+Comment[x-test]=xxA tool to send images to IM contactsxx
 Type=Service
 ServiceTypes=KIPI/Plugin
 X-KDE-Library=kipiplugin_telepathy
