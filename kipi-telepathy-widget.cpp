@@ -48,12 +48,12 @@
 #include <KTp/Widgets/contact-grid-widget.h>
 
 
-KIPITelepathy::Widget::Widget(Interface* iface, Tp::AccountManagerPtr accountManager, QWidget* parent)
+KIPITelepathy::Widget::Widget(Tp::AccountManagerPtr accountManager, QWidget* parent)
     : QWidget(parent)
 {
     QHBoxLayout* mainLayout = new QHBoxLayout(this);
 
-    m_imgList  = new KIPIPlugins::KPImagesList(iface, this);
+    m_imgList  = new KIPIPlugins::KPImagesList(this);
     m_imgList->setControlButtonsPlacement(KIPIPlugins::KPImagesList::ControlButtonsBelow);
     m_imgList->setAllowRAW(true);
     m_imgList->loadImagesFromCurrentSelection();

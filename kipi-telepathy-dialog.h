@@ -30,10 +30,6 @@
 #include <KDialog>
 #include <TelepathyQt/Types>
 
-namespace KIPI {
-    class Interface;
-}
-
 namespace KIPIPlugins {
     class KPAboutData;
 }
@@ -51,7 +47,7 @@ class Dialog : public KDialog
     Q_DISABLE_COPY(Dialog)
 
 public:
-    Dialog(KIPI::Interface *interface, QWidget *parent);
+    Dialog(QWidget *parent);
     virtual ~Dialog();
 
     /**
@@ -71,7 +67,6 @@ protected:
     virtual void closeEvent(QCloseEvent *e);
 
 private:
-    KIPI::Interface* m_interface;
     KIPIPlugins::KPAboutData *m_about;
     KIPITelepathy::Widget *m_widget;
     Tp::AccountManagerPtr m_accountManager;

@@ -35,10 +35,6 @@
 class AccountsModel;
 class QProgressBar;
 
-namespace KIPI {
-    class Interface;
-}
-
 namespace KIPIPlugins
 {
     class KPImagesList;
@@ -57,7 +53,7 @@ class Widget : public QWidget
     Q_OBJECT
     Q_DISABLE_COPY(Widget)
 public:
-    Widget(KIPI::Interface *iface, Tp::AccountManagerPtr accountManager, QWidget *parent = 0);
+    Widget(Tp::AccountManagerPtr accountManager, QWidget *parent = 0);
     virtual ~Widget();
 
     void reload();

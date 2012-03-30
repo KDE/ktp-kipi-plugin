@@ -98,7 +98,7 @@ void KIPITelepathy::Plugin::onActionTriggered()
 
     if (!m_dialogSend) {
         // We clean it up in the close button
-        m_dialogSend = new KIPITelepathy::Dialog(interface, kapp->activeWindow());
+        m_dialogSend = new KIPITelepathy::Dialog(kapp->activeWindow());
     } else {
         if (m_dialogSend->isMinimized()) {
             KWindowSystem::unminimizeWindow(m_dialogSend->winId());

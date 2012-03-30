@@ -55,9 +55,8 @@
 #define PREFERRED_FILETRANSFER_HANDLER QLatin1String("org.freedesktop.Telepathy.Client.KTp.FileTransfer")
 
 
-KIPITelepathy::Dialog::Dialog(KIPI::Interface* interface, QWidget* parent)
+KIPITelepathy::Dialog::Dialog(QWidget* parent)
     : KDialog (parent),
-      m_interface(interface),
       m_about(0),
       m_widget(0)
 {
@@ -143,7 +142,7 @@ void KIPITelepathy::Dialog::onAccountManagerReady(Tp::PendingOperation* op)
         hide();
     }
 
-    m_widget = new KIPITelepathy::Widget(m_interface, m_accountManager, this);
+    m_widget = new KIPITelepathy::Widget(m_accountManager, this);
     setMainWidget(m_widget);
     m_widget->setMinimumSize(750, 500);
 
