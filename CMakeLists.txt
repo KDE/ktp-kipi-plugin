@@ -1,6 +1,6 @@
 project (ktp-kipi-plugin)
 
-set (KTP_KIPI_PLUGIN_VERSION "0.3.60")
+set (KTP_KIPI_PLUGIN_VERSION "0.4")
 
 set (CMAKE_MODULE_PATH
      "${CMAKE_CURRENT_SOURCE_DIR}/cmake/modules"
