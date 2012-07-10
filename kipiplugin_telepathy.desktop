@@ -2,6 +2,7 @@
 Encoding=UTF-8
 Name=Telepathy Send To
 Name[et]=Telepathy saatmine
+Name[fi]=Telepathy – lähetä käyttäjälle
 Name[hu]=Telepathy küldés ide
 Name[it]=Invio via Telepathy
 Name[km]=Telepathy ផ្ញើ​ទៅ
@@ -15,6 +16,7 @@ Name[x-test]=xxTelepathy Send Toxx
 Comment=A tool to send images to IM contacts
 Comment[de]=Ein Werkzeug zum Senden von Bildern an Kontakte
 Comment[et]=Tööriist piltide saatmiseks kiirsuhtluskontaktidele
+Comment[fi]=Työkalu, jonka avulla voi lähettää kuvia muille pikaviestinkäyttäjille
 Comment[hu]=Egy eszköz üzenetek küldéséhez IM partnereknek
 Comment[it]=Uno strumento per inviare immagini a contatti di messaggistica istantanea
 Comment[km]=ឧបករណ៍ ដើម្បី​ផ្ញើ​រូបភាព​ទៅ​ទំនាក់ទំនង IM
