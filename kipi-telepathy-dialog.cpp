@@ -29,6 +29,8 @@
 #include "version.h"
 
 #include <kpaboutdata.h>
+#include <kpprogresswidget.h>
+#include <kpimageslist.h>
 
 #include <KAboutData>
 #include <KHelpMenu>
@@ -39,7 +41,6 @@
 #include <KMimeType>
 
 #include <QCloseEvent>
-#include <QProgressBar>
 
 #include <TelepathyQt/Types>
 #include <TelepathyQt/AccountManager>
@@ -153,6 +154,10 @@ void KIPITelepathy::Dialog::onAccountManagerReady(Tp::PendingOperation* op)
             SIGNAL(user1Clicked()),
             SLOT(onSendButtonClicked()));
 
+    connect(m_widget->progressBar(),
+            SIGNAL(signalProgressCanceled()),
+            SLOT(onStopAndCloseProgressBar()));
+
     show();
 }
 
@@ -164,6 +169,14 @@ void KIPITelepathy::Dialog::onDataChanged()
 void KIPITelepathy::Dialog::onHelpClicked()
 {
     KToolInvocation::invokeHelp(QLatin1String("telepathy"), QLatin1String("kipi-plugins"));
+}
+
+void KIPITelepathy::Dialog::onStopAndCloseProgressBar()
+{
+    m_widget->imagesList()->cancelProcess();
+    m_widget->imagesList()->listView()->clear();
+    m_widget->progressBar()->progressCompleted();
+    done(Close);
 }
 
 void KIPITelepathy::Dialog::onSendButtonClicked()
@@ -178,6 +191,8 @@ void KIPITelepathy::Dialog::onSendButtonClicked()
     m_widget->progressBar()->setMaximum(m_widget->imageUrls().count());
     m_widget->progressBar()->setValue(0);
     m_widget->progressBar()->show();
+    m_widget->progressBar()->progressScheduled(i18n("KDE IM Send"), true, true);
+    m_widget->progressBar()->progressThumbnailChanged(KIcon("telepathy-kde").pixmap(22, 22));
 
     Tp::ContactPtr contact = m_widget->selectedContact();
     Tp::AccountPtr sendingAccount = m_widget->selectedAccount();

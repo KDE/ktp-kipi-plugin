@@ -33,11 +33,11 @@
 #include <TelepathyQt/Types>
 
 class AccountsModel;
-class QProgressBar;
 
 namespace KIPIPlugins
 {
     class KPImagesList;
+    class KPProgressWidget;
 }
 
 namespace KTp
@@ -64,7 +64,8 @@ public:
     Tp::ContactPtr selectedContact() const;
     Tp::AccountPtr selectedAccount() const;
     void processed(const KUrl& url, bool success);
-    QProgressBar* progressBar() const;
+    KIPIPlugins::KPProgressWidget* progressBar() const;
+    KIPIPlugins::KPImagesList* imagesList() const;
 
 Q_SIGNALS:
     void dataChanged();
@@ -75,7 +76,7 @@ private Q_SLOTS:
 private:
     KIPIPlugins::KPImagesList *m_imgList;
     KTp::ContactGridWidget *m_contactGridWidget;
-    QProgressBar *m_progressBar;
+    KIPIPlugins::KPProgressWidget *m_progressBar;
     Tp::AccountManagerPtr m_accountManager;
     AccountsModel *m_accountsModel;
 };

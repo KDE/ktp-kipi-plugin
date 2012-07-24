@@ -28,6 +28,8 @@ cp -uv ${kipiplugins_dir}/common/libkipiplugins/tools/kprawthumbthread.h libkipi
 cp -uv ${kipiplugins_dir}/common/libkipiplugins/tools/kpversion.cpp libkipiplugins/tools/
 cp -uv ${kipiplugins_dir}/common/libkipiplugins/widgets/kpimageslist.cpp libkipiplugins/widgets/
 cp -uv ${kipiplugins_dir}/common/libkipiplugins/widgets/kpimageslist.h libkipiplugins/widgets/
+cp -uv ${kipiplugins_dir}/common/libkipiplugins/widgets/kpprogresswidget.cpp libkipiplugins/widgets/
+cp -uv ${kipiplugins_dir}/common/libkipiplugins/widgets/kpprogresswidget.h libkipiplugins/widgets/
 
 # Yes, this is even worse
 cp -uv ${kipiplugins_dir}/build/common/libkipiplugins/kpversion.h libkipiplugins/

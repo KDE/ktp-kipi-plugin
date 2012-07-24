@@ -45,6 +45,7 @@ set(kipiplugins_SRCS
     libkipiplugins/tools/kprawthumbthread.cpp
     libkipiplugins/tools/kpversion.cpp
     libkipiplugins/widgets/kpimageslist.cpp
+    libkipiplugins/widgets/kpprogresswidget.cpp
 )
 
 # Kipi plugins debug area

@@ -27,6 +27,7 @@
 #include "kipi-telepathy-widget.h"
 
 #include <kpimageslist.h>
+#include <kpprogresswidget.h>
 
 #include <KDE/KDialog>
 #include <KDE/KLocale>
@@ -36,7 +37,6 @@
 #include <QtGui/QGroupBox>
 #include <QtGui/QHBoxLayout>
 #include <QtGui/QVBoxLayout>
-#include <QtGui/QProgressBar>
 #include <QtGui/QListView>
 
 #include <TelepathyQt/Types>
@@ -79,7 +79,7 @@ KIPITelepathy::Widget::Widget(Tp::AccountManagerPtr accountManager, QWidget* par
 
     contactLayout->addWidget(m_contactGridWidget);
 
-    m_progressBar = new QProgressBar(settingsBox);
+    m_progressBar = new KIPIPlugins::KPProgressWidget(settingsBox);
     m_progressBar->setSizePolicy(QSizePolicy::Preferred, QSizePolicy::Fixed);
     m_progressBar->setFormat(i18n("%v / %m"));
     m_progressBar->setValue(0);
@@ -141,9 +141,14 @@ void KIPITelepathy::Widget::processed(const KUrl& url, bool success)
     m_imgList->processed(url, success);
 }
 
-QProgressBar* KIPITelepathy::Widget::progressBar() const
+KIPIPlugins::KPProgressWidget* KIPITelepathy::Widget::progressBar() const
 {
     return m_progressBar;
+}
+
+KIPIPlugins::KPImagesList* KIPITelepathy::Widget::imagesList() const
+{
+    return m_imgList;
 }
 
 void KIPITelepathy::Widget::onAccountManagerReady()

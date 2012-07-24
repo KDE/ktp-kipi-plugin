@@ -61,6 +61,7 @@ private Q_SLOTS:
     void onAccountManagerReady(Tp::PendingOperation *op);
     void onHelpClicked();
     void onSendButtonClicked();
+    void onStopAndCloseProgressBar();
     void onFileTransferRequestsFinished(Tp::PendingOperation *op);
 
 protected:
