@@ -36,7 +36,7 @@ namespace pluginsVersion
     const QString gitVersion();
 }
 
-static const char kipiplugins_version[] = "2.6.0";
+static const char kipiplugins_version[] = "2.7.0";
 
 static inline const QString kipipluginsVersion()
 {
