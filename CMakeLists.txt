@@ -14,7 +14,8 @@ find_package(KDE4 REQUIRED)
 find_package(TelepathyQt4 0.9.0 REQUIRED)
 find_package(KTp REQUIRED)
 find_package(Kipi REQUIRED)
-find_package(KipiPlugins REQUIRED)
+find_package(Kexiv2 REQUIRED)
+find_package(Kdcraw REQUIRED)
 
 include(KDE4Defaults)
 include(MacroLibrary)
@@ -22,8 +23,6 @@ include(MacroLibrary)
 # Add the compiler flags
 add_definitions (${QT_DEFINITIONS}
                  ${KDE4_DEFINITIONS}
-                 -DQT_NO_CAST_FROM_ASCII
-                 -DQT_NO_KEYWORDS
 )
 
 include_directories(${CMAKE_SOURCE_DIR}
@@ -32,16 +31,35 @@ include_directories(${CMAKE_SOURCE_DIR}
                     ${TELEPATHY_QT4_INCLUDE_DIR}
                     ${KTP_INCLUDE_DIR}
                     ${KIPI_INCLUDE_DIR}
-                    ${KIPI_PLUGINS_INCLUDE_DIR}
 )
 
 configure_file(version.h.in ${CMAKE_CURRENT_BINARY_DIR}/version.h)
 
+set(kipiplugins_SRCS
+    libkipiplugins/dialogs/kpimagedialog.cpp
+    libkipiplugins/tools/kpaboutdata.cpp
+    libkipiplugins/tools/kphostsettings.cpp
+    libkipiplugins/tools/kpimageinfo.cpp
+    libkipiplugins/tools/kpmetadata.cpp
+    libkipiplugins/tools/kpmetasettings.cpp
+    libkipiplugins/tools/kprawthumbthread.cpp
+    libkipiplugins/tools/kpversion.cpp
+    libkipiplugins/widgets/kpimageslist.cpp
+)
+
+# Kipi plugins debug area
+set(AREA_CODE_LOADING "51001")
+add_definitions(-DAREA_CODE_LOADING=${AREA_CODE_LOADING})
+include_directories(libkipiplugins
+                    libkipiplugins/tools
+                    libkipiplugins/widgets
+)
 
 set (kipiplugin_telepathy_SRCS
      kipi-telepathy-plugin.cpp
      kipi-telepathy-dialog.cpp
      kipi-telepathy-widget.cpp
+     ${kipiplugins_SRCS}
 )
 
 kde4_add_plugin (kipiplugin_telepathy
@@ -49,9 +67,13 @@ kde4_add_plugin (kipiplugin_telepathy
 )
 
 target_link_libraries (kipiplugin_telepathy
-                       kipiplugins
-                       ${KIPI_LIBRARIES}
+                       ${QT_QTGUI_LIBRARY}
+                       ${KDE4_KDECORE_LIBS}
                        ${KDE4_KDEUI_LIBS}
+                       ${KDE4_KIO_LIBS}
+                       ${KEXIV2_LIBRARIES}
+                       ${KDCRAW_LIBRARIES}
+                       ${KIPI_LIBRARIES}
                        ${TELEPATHY_QT4_LIBRARIES}
                        ${KTP_LIBRARIES}
                        ${KTP_MODELS_LIBRARIES}
