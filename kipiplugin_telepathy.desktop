@@ -1,6 +1,7 @@
 [Desktop Entry]
 Encoding=UTF-8
 Name=Telepathy Send To
+Name[cs]=Telepathy Odeslat na
 Name[et]=Telepathy saatmine
 Name[fi]=Telepathy – lähetä käyttäjälle
 Name[fr]=Envoi via Telepathy
@@ -18,6 +19,7 @@ Name[sv]=Telepathy skicka till
 Name[uk]=Надсилання файлів за допомогою Telepathy
 Name[x-test]=xxTelepathy Send Toxx
 Comment=A tool to send images to IM contacts
+Comment[cs]=Nástroj pro odesílání obrázků kontaktům komunikátoru
 Comment[de]=Ein Werkzeug zum Senden von Bildern an Kontakte
 Comment[et]=Tööriist piltide saatmiseks kiirsuhtluskontaktidele
 Comment[fi]=Työkalu, jonka avulla voi lähettää kuvia muille pikaviestinkäyttäjille
