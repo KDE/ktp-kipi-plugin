@@ -32,7 +32,7 @@
 
 #include <TelepathyQt/Types>
 
-class AccountsModel;
+class ContactsModel;
 
 namespace KIPIPlugins
 {
@@ -78,7 +78,7 @@ private:
     KTp::ContactGridWidget *m_contactGridWidget;
     KIPIPlugins::KPProgressWidget *m_progressBar;
     Tp::AccountManagerPtr m_accountManager;
-    AccountsModel *m_accountsModel;
+    ContactsModel *m_contactsModel;
 };
 
 } // namespace KIPITelepathy

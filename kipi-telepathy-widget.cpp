@@ -42,7 +42,7 @@
 #include <TelepathyQt/Types>
 #include <TelepathyQt/AccountManager>
 
-#include <KTp/Models/accounts-model.h>
+#include <KTp/Models/contacts-model.h>
 #include <KTp/Models/accounts-filter-model.h>
 #include <KTp/Models/contact-model-item.h>
 #include <KTp/Widgets/contact-grid-widget.h>
@@ -70,10 +70,10 @@ KIPITelepathy::Widget::Widget(Tp::AccountManagerPtr accountManager, QWidget* par
     contactGroupBox->setLayout(contactLayout);
 
 
-    m_accountsModel = new AccountsModel(this);
-    m_accountsModel->setAccountManager(accountManager);
+    m_contactsModel = new ContactsModel(this);
+    m_contactsModel->setAccountManager(accountManager);
 
-    m_contactGridWidget = new KTp::ContactGridWidget(m_accountsModel, contactGroupBox);
+    m_contactGridWidget = new KTp::ContactGridWidget(m_contactsModel, contactGroupBox);
     m_contactGridWidget->filter()->setCapabilityFilterFlags(AccountsFilterModel::FilterByFileTransferCapability);
     m_contactGridWidget->filter()->setPresenceTypeFilterFlags(AccountsFilterModel::ShowOnlyConnected);
 
@@ -153,7 +153,7 @@ KIPIPlugins::KPImagesList* KIPITelepathy::Widget::imagesList() const
 
 void KIPITelepathy::Widget::onAccountManagerReady()
 {
-    m_accountsModel->setAccountManager(m_accountManager);
+    m_contactsModel->setAccountManager(m_accountManager);
     dataChanged();
 }
 
