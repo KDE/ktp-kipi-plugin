@@ -51,6 +51,7 @@
 #include <TelepathyQt/PendingComposite>
 #include <TelepathyQt/FileTransferChannelCreationProperties>
 
+#include <KTp/contact-factory.h>
 
 //FIXME one day this will be somewhere else.
 #define PREFERRED_FILETRANSFER_HANDLER QLatin1String("org.freedesktop.Telepathy.Client.KTp.FileTransfer")
@@ -113,10 +114,10 @@ KIPITelepathy::Dialog::Dialog(QWidget* parent)
                                                                                << Tp::Connection::FeatureRoster
                                                                                << Tp::Connection::FeatureSelfContact);
 
-    Tp::ContactFactoryPtr contactFactory = Tp::ContactFactory::create(Tp::Features()  << Tp::Contact::FeatureAlias
-                                                                      << Tp::Contact::FeatureAvatarData
-                                                                      << Tp::Contact::FeatureSimplePresence
-                                                                      << Tp::Contact::FeatureCapabilities);
+    Tp::ContactFactoryPtr contactFactory = KTp::ContactFactory::create(Tp::Features()  << Tp::Contact::FeatureAlias
+                                                                       << Tp::Contact::FeatureAvatarData
+                                                                       << Tp::Contact::FeatureSimplePresence
+                                                                       << Tp::Contact::FeatureCapabilities);
 
     Tp::ChannelFactoryPtr channelFactory = Tp::ChannelFactory::create(QDBusConnection::sessionBus());
 
