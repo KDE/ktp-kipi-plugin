@@ -35,6 +35,7 @@
 // LibKDcraw includes
 
 #include <libkdcraw/kdcraw.h>
+#include <libkdcraw/version.h>
 
 using namespace KDcrawIface;
 
@@ -109,7 +110,11 @@ void KPRawThumbThread::run()
         if (!url.isEmpty())
         {
             QImage img;
+#if(KDCRAW_VERSION >= 0x020200)
+            bool ret = KDcraw::loadRawPreview(img, url.path());
+#else
             bool ret = KDcraw::loadDcrawPreview(img, url.path());
+#endif
             if (ret)
             {
                 kDebug() << url << " :: processed as RAW file";

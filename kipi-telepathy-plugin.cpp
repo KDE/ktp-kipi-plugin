@@ -40,6 +40,7 @@
 #include <KDE/KApplication>
 
 #include <libkipi/interface.h>
+#include <libkipi/version.h>
 
 #include <unistd.h>
 
@@ -66,7 +67,7 @@ void KIPITelepathy::Plugin::setup(QWidget* widget)
     m_dialogSend = 0;
     KIPI::Plugin::setup(widget);
 
-    m_action = actionCollection()->addAction(QLatin1String("send"));
+    m_action = actionCollection()->addAction("sendToIM");
     m_action->setText(i18n("Send to IM &Contact..."));
     m_action->setIcon(KIcon(QLatin1String("telepathy-kde")));
     m_action->setShortcut(KShortcut(Qt::ALT+Qt::SHIFT+Qt::Key_T));
@@ -76,7 +77,11 @@ void KIPITelepathy::Plugin::setup(QWidget* widget)
             this,
             SLOT(onActionTriggered()));
 
-    addAction(m_action);
+#if(KIPI_VERSION >= 0x020000)
+        addAction("sendToIM", m_action, KIPI::ExportPlugin);
+#else
+        addAction(m_action);
+#endif
 
     KIPI::Interface* interface = dynamic_cast<KIPI::Interface*>(parent());
     if (!interface) {

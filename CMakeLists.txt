@@ -85,6 +85,9 @@ install (TARGETS kipiplugin_telepathy
          DESTINATION ${PLUGIN_INSTALL_DIR}
 )
 
-install (FILES kipiplugin_telepathy.desktop
+configure_file(kipiplugin_telepathy.desktop.cmake
+               ${CMAKE_CURRENT_BINARY_DIR}/kipiplugin_telepathy.desktop)
+
+install (FILES ${CMAKE_CURRENT_BINARY_DIR}/kipiplugin_telepathy.desktop
          DESTINATION ${SERVICES_INSTALL_DIR}
 )
