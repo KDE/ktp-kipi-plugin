@@ -2,6 +2,7 @@
 Encoding=UTF-8
 Name=Telepathy Send To
 Name[cs]=Telepathy Odeslat na
+Name[de]=Telepathy-Übertragung
 Name[et]=Telepathy saatmine
 Name[fi]=Telepathy – lähetä käyttäjälle
 Name[fr]=Envoi via Telepathy
