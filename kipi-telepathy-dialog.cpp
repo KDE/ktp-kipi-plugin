@@ -46,16 +46,14 @@
 #include <TelepathyQt/AccountManager>
 #include <TelepathyQt/Contact>
 #include <TelepathyQt/Account>
+#include <TelepathyQt/PendingChannelRequest>
 #include <TelepathyQt/PendingOperation>
 #include <TelepathyQt/PendingReady>
 #include <TelepathyQt/PendingComposite>
 #include <TelepathyQt/FileTransferChannelCreationProperties>
 
+#include <KTp/actions.h>
 #include <KTp/contact-factory.h>
-
-//FIXME one day this will be somewhere else.
-#define PREFERRED_FILETRANSFER_HANDLER QLatin1String("org.freedesktop.Telepathy.Client.KTp.FileTransfer")
-
 
 KIPITelepathy::Dialog::Dialog(QWidget* parent)
     : KDialog (parent),
@@ -213,12 +211,7 @@ void KIPITelepathy::Dialog::onSendButtonClicked()
         kDebug() << url;
         m_widget->progressBar()->setValue(channelRequests.count());
 
-        Tp::FileTransferChannelCreationProperties fileTransferProperties(url.toLocalFile(), KMimeType::findByFileContent(url.toLocalFile())->name());
-
-        channelRequests << (Tp::PendingOperation*)sendingAccount->createFileTransfer(contact,
-                                                                                     fileTransferProperties,
-                                                                                     now,
-                                                                                     PREFERRED_FILETRANSFER_HANDLER);
+        channelRequests << KTp::Actions::startFileTransfer(sendingAccount,contact, url.toLocalFile());
 
         m_widget->processed(url, true);
     }
