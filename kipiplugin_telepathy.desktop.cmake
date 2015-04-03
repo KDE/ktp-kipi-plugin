@@ -25,6 +25,7 @@ Name[tr]=Telepathy Şuraya Gönder
 Name[uk]=Надсилання файлів за допомогою Telepathy
 Name[x-test]=xxTelepathy Send Toxx
 Comment=A tool to send images to IM contacts
+Comment[ast]=Una ferramienta pa unviar imáxenes a los contautos de mensaxería nel intre
 Comment[bs]=Alat za slanje slika IM kontaktnim osobama
 Comment[cs]=Nástroj pro odesílání obrázků kontaktům komunikátoru
 Comment[de]=Ein Werkzeug zum Senden von Bildern an Kontakte
